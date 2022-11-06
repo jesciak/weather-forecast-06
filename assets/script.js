@@ -1,59 +1,158 @@
 //global variables
 var apiKey = "4c7125ce7302733bfe305df59d35dd48"
-// var weatherAPIURL = 
+var date= $('#date');
+var currentDate= moment().format('L');
+date.text(currentDate);
 
 // //DOM element references
 // var cityEl =
 // var citySearch =
 var searchButton = document.getElementById('searchBtn')
 var textInput = document.getElementById('textInput')
-// var tempEl =
-// var humityEl =
-// var windEl =
+var cityList= [];
+var searchedCities;
+var lastSearched;
+var tempEl = document.getElementById('temp')
+var humityEl =document.getElementById('humidity')
+var windEl =document.getElementById('wind')
+var uvEl=document.getElementById('uv')
 // var dateEl =
-// var iconEl =
+// var iconEl =document.getElementById('temp')
 
+
+// if (localStorage.getItem('cityList')){
+// searchedCities= JSON.parse(localStorage.getItem('cityList'));
+// console.log(searchedCities);
+// for (var i=0; i< searchedCities.length; i++){
+// lastSearched= searchedCities.length -1;
+// var lastCity= searchedCities[lastSearched]; 
+// }
+// }else {
+//   cityList;
+// }
+// getLatLon();
+// console.log('cityList', cityList);
+
+// $('searchBtn').on('click', function(event){
+//   event.preventDefault();
+//   var city= $('#textInput').val();
+//   console.log(city);
+// })
 //add timezone plugin to day.js
+getCityStored();
 
+function renderCityData(){
+  $('#city-search-list').empty();
+  $('#textInput').val('');
+  for (var i=0; i< cityList.length; i++){
+    var j= $('<li>');
+    j.addClass('list-group-item')
+    j.attr('data-name', cityList[i]);
+    j.text(cityList[i]);
+    $('cityList').prepend(j);
+};
+}
+
+function getCityStored(){
+  var storedCity=JSON.parse(localStorage.getItem('cityName'));
+if (storedCity !== null){
+  cityList= storedCity;
+}
+renderCityData();
+}
 
 //function to get lat & lon
 function getLatLon(city) {
-  var url = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city + '&appid=' + apiKey
+  var url = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city + '&appid=' + apiKey + '&units=imperial';
   fetch(url)
   .then(function(res) { 
     return res.json()
   } )
   .then(function(data){
     console.log(data)
+    
     var lat = data[0].lat;
     var lon = data[0].lon;
-    getCurrentWeather(lat, lon)
+    
+    // cityList.push(city);
+    
+
+// var citySearched =$('<li>');
+// citySearched.addClass('list-city-group');
+// citySearched.text(data.name);
+// citySearched.attr('lat', data.coord.lat);
+// citySearched.attr('lon', data.coord.lon);
+// $('#city-search-list').prepend(citySearched);
+
+// citySearched.on('click', function(){
+//   lat=$(this).attr('lat');
+//   lon=$(this).attr('lon');
+//   getcity(response);
+  getCurrentWeather(lat, lon);
+// })
+// ;
+
+//     getCurrentWeather(lat, lon);
+//    getCity(response);
   })
 }
 
 function getCurrentWeather(lat,lon){
-  var url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey;
+  var url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey + '&units=imperial';
   fetch(url)
   .then(function(res) { 
     return res.json()
   } )
   .then(function(data){
     console.log(data)
+  
+    $('#temp').append(JSON.stringify(data.main.temp)+ ' F');
+    $('#humidity').append(JSON.stringify(data.main.humidity)+ ' %');
+    $('#wind').append(JSON.stringify(data.wind.speed)+ ' MPH');
+
   })
 }
 
+
 searchButton.addEventListener('click', function () {
-  var cityName = textInput.value
+  var cityName = textInput.value;
   console.log(cityName)
+  localStorage.setItem('cityName', JSON.stringify(cityName));
   getLatLon(cityName)
+  // $('#city-search-list').append("<li>" + cityName+"</li>");
 })
 
 function example(a,b){
+
   return a+b;
+ 
 }
 
-example(1,2) //3
-example(2,3) //5
+example(1,2) ;//3
+example(2,3); //5
+
+getFiveDay(city);
+
+function getFiveDay(){
+  var url = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + apiKey + '&units=imperial';
+  fetch(url)
+  .then(function(res) { 
+    return res.json()
+  } )
+  .then(function(data){
+    console.log(data);
+    $('#temp').append(JSON.stringify(data.main.temp)+ ' F');
+    $('#humidity').append(JSON.stringify(data.main.humidity)+ ' %');
+    $('#wind').append(JSON.stringify(data.wind.speed)+ ' MPH');
+
+    displayForecast(data);
+
+  });
+
+}
+
+
+
 
 
 //function to display search history list

@@ -1,17 +1,31 @@
 header {
-    background-color: darkblue;
-    color: white;
+    background-image: url('../assets/images/v957-wan-15.jpg');
+    color: rgb(53, 144, 218);
+    background-size: cover ;
+    justify-content: center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
-    height: 100px;
+    height: 200px;
+    padding-top: 5%;
+    margin-bottom: 10px;
 }
 .card{
-    background-color: lightblue;
+    background-image: url('../assets/images/sunshine-clouds-sky-during-morning-background-blue-white-pastel-heaven-soft-focus-lens-flare-sunlight-abstract-blurred-cyan-gradient-peaceful-nature-open-view-out-windows-beautiful-summer-spring.jpg');
+    color: white;
+    background-size: cover ;
     margin: 10px;
     font-size: small;
     display: flex;
     flex-wrap: wrap;
+    box-shadow: 10px 10px 5px darkgray;
 }
+/* .card-text-center{
+    background-color: #dabb4aa5;
+    display: flex;
+   
+
+} */
 @media screen and (max-width: 600px){ 
     .card{
         width: 100%;

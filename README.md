@@ -33,6 +33,10 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
     ```
 
 ## Credits
+<a href="https://www.freepik.com/free-photo/sunshine-clouds-sky-during-morning-background-blue-white-pastel-heaven-soft-focus-lens-flare-sunlight-abstract-blurred-cyan-gradient-peaceful-nature-open-view-out-windows-beautiful-summer-spring_1284995.htm">Image by tirachard</a> on Freepik
+
+<a href="https://www.freepik.com/free-vector/mountain-ridges-vector-illustration-sunlight_16866515.htm#query=cartoon%20weather&position=0&from_view=search&track=sph">Image by valadzionak_volha</a> on Freepik
+<a href="https://www.freepik.com/free-vector/sunny-weather-background-vector-pastel-yellow-with-glittery-cute-doodle-illustration-kids_16358905.htm#page=3&query=cartoon%20weather&position=4&from_view=search&track=sph">Image by rawpixel.com</a> on Freepik
 
 List your collaborators, if any, with links to their GitHub profiles.
 

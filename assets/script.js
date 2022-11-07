@@ -6,7 +6,7 @@ var currentDate= moment().format('L');
 date.text(currentDate);
 
 // //DOM element references
-// var cityEl =
+var cityEl = document.getElementById('cityName')
 // var citySearch =
 var searchButton = document.getElementById('searchBtn')
 var textInput = document.getElementById('textInput')
@@ -82,6 +82,7 @@ function getLatLon(city) {
 }
 // get current weather data
 
+
 function getCurrentWeather(lat,lon){
   var url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey + '&units=imperial';
   fetch(url)
@@ -90,8 +91,9 @@ function getCurrentWeather(lat,lon){
   } )
   .then(function(data){
     console.log(data)
-   
-  
+
+
+  $('#cityName').html(data.name);
     $('#temp').append(JSON.stringify(data.main.temp)+ ' F');
     $('#humidity').append(JSON.stringify(data.main.humidity)+ ' %');
     $('#wind').append(JSON.stringify(data.wind.speed)+ ' MPH');
@@ -135,20 +137,21 @@ function getFiveDay(lat,lon){
     var hour=forecastResults[i].dt_txt.split('-')[2].split(' ')[1];
     console.log(day);
     console.log(hour);
-    if(forecastResults[i].dt_txt.indexOf('12:00:00') !== -1){
+    // if(forecastResults[i].dt_txt.indexOf('12:00:00') !== -1){
 
-      var temp= forecastResults[i].main.temp;
-      var roundedTemp= Math.floor(temp);
-  l
-    // fiveDayData.innerHTML='';
+      // var temp= forecastResults[i].main.temp;
+      // var roundedTemp= Math.floor(temp);
   
-$('#temp1').append(JSON.stringify(data.city.main.roundedTemp)+ ' F');
+    // fiveDayData.innerHTML='';
+    
+$('#temp1').append(JSON.stringify(data.city.main.temp)+ ' F');
  $('#humidity1').append(JSON.stringify(data.main.humidity)+ ' %');
  $('#wind1').append(JSON.stringify(data.wind.speed)+ ' MPH');
- getFiveDay(data);
+ getFiveDay(data, lat, lon);
     
   }
-    }
-})
-}
+    })
+  }
+// })
+// }
 

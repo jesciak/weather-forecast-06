@@ -8,4 +8,13 @@ header {
 .card{
     background-color: lightblue;
     margin: 10px;
+    font-size: small;
+    display: flex;
+    flex-wrap: wrap;
+}
+@media screen and (max-width: 600px){ 
+    .card{
+        width: 100%;
+    }
+    
 }

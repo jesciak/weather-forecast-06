@@ -16,98 +16,84 @@
 
 <body>
     <!-- header -->
-
     <header>
         <h1 style="font-size: 55px">Weather Dashboard</h1>
     </header>
-
     <!-- main content -->
-
     <main class="row container-fluid">
-
         <!-- search bar -->
-
         <div class="col-3 sidebar">
             <h4>Search for a City:</h4>
             <div class="input-group mb-3">
                 <input class="form-control me-2 " type="text" placeholder="Search" aria-label="Search" id="textInput">
-                
-                    <ul class="list-group" id="city-search-list"></ul>
-                    <!-- <div class="'input-group-append"> -->
-                    <button class="btn btn-outline-primary" type="button" id="searchBtn">Search</button>
-                </div>
-            
-                <!-- append previous search -->
-                
+                <ul class="list-group" id="city-search-list"></ul>
+                <button class="btn btn-outline-primary" type="button" id="searchBtn">Search</button>
             </div>
-        <!-- </div> -->
-
+            <!-- append previous search -->
+        </div>
         <!-- display current weather -->
         <div class="col-9" id="current-data">
             <div class="card mb-3">
                 <div class="card-body">
                     <h4>Current Weather</h4>
                     <h3 id="name"></h3>
-                        <h6 id="date"></h6>
+                    <h6 id="date"></h6>
                     <h4 class="card-title" id="cityName"></h4>
                     <p class="card-text-center" id="temp">Temp: </p>
                     <p class="card-text-center" id="humidity">Humidity: </p>
                     <p class="card-text-center" id="wind">Wind Speed: </p>
-                
                 </div>
             </div>
-
             <!-- 5 day forecast -->
-<div class="row spread">
-    <h4 class="5day" id="fiveday">5 Day Forecast</h4>
-    <div class="card col-2">
-            <div class="card-body" id="5day1">
-                <h5 id="date1"></h5>
-                <p class="card-text-center" id="temp1">Temp: </p>
-                <p class="card-text-center" id="humidity1">Humidity: </p>
-                <p class="card-text-center" id="wind1">Wind Speed: </p>
+            <div class="row spread">
+                <h4 class="5day" id="fiveday">5 Day Forecast</h4>
+                <!-- cards to display the 5 days -->
+                <div class="card col-2">
+                    <div class="card-body" id="5day1">
+                        <h5 id="date1"></h5>
+                        <p class="card-text-center" id="temp1">Temp: </p>
+                        <p class="card-text-center" id="humidity1">Humidity: </p>
+                        <p class="card-text-center" id="wind1">Wind Speed: </p>
+                    </div>
+                </div>
+                <div class="card col-2">
+                    <div class="card-body" id="5day2">
+                        <h5 id="date2"></h5>
+                        <p class="card-text-center" id="temp2">Temp: </p>
+                        <p class="card-text-center" id="humidity2">Humidity: </p>
+                        <p class="card-text-center" id="wind2">Wind Speed: </p>
+                    </div>
+                </div>
+                <div class="card col-2">
+                    <div class="card-body" id="5day3">
+                        <h5 id="date3"></h5>
+                        <p class="card-text-center" id="temp3">Temp: </p>
+                        <p class="card-text-center" id="humidity3">Humidity: </p>
+                        <p class="card-text-center" id="wind3">Wind Speed: </p>
+                    </div>
+                </div>
+                <div class="card col-2">
+                    <div class="card-body" id="5day4">
+                        <h5 id="date4"></h5>
+                        <p class="card-text-center" id="temp4">Temp: </p>
+                        <p class="card-text-center" id="humidity4">Humidity: </p>
+                        <p class="card-text-center" id="wind4">Wind Speed: </p>
+                    </div>
+                </div>
+                <div class="card col-2">
+                    <div class="card-body" id="5day5">
+                        <h5 id="date5"></h5>
+                        <p class="card-text-center" id="temp5">Temp: </p>
+                        <p class="card-text-center" id="humidity5">Humidity: </p>
+                        <p class="card-text-center" id="wind5">Wind Speed: </p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="card col-2">
-            <div class="card-body" id="5day2">
-                <h5 id="date2"></h5>
-                <p class="card-text-center" id="temp2">Temp: </p>
-                <p class="card-text-center" id="humidity2">Humidity: </p>
-                <p class="card-text-center" id="wind2">Wind Speed: </p>
-            </div>
-        </div>
-        <div class="card col-2">
-            <div class="card-body" id="5day3">
-                <h5 id="date3"></h5>
-                <p class="card-text-center" id="temp3">Temp: </p>
-                <p class="card-text-center" id="humidity3">Humidity: </p>
-                <p class="card-text-center" id="wind3">Wind Speed: </p>
-            </div>
-        </div>
-        <div class="card col-2">
-            <div class="card-body" id="5day4">
-                <h5 id="date4"></h5>
-                <p class="card-text-center" id="temp4">Temp: </p>
-                <p class="card-text-center" id="humidity4">Humidity: </p>
-                <p class="card-text-center" id="wind4">Wind Speed: </p>
-            </div>
-        </div>
-        <div class="card col-2">
-            <div class="card-body" id="5day5">
-                <h5 id="date5"></h5>
-                <p class="card-text-center" id="temp5">Temp: </p>
-                <p class="card-text-center" id="humidity5">Humidity: </p>
-                <p class="card-text-center" id="wind5">Wind Speed: </p>
-            </div>
-        </div>
-</div>
-</div>
-
     </main>
-
-
+    <!-- links for JQuery, MomementJs, and local javascript file -->
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
     <script src="./assets/script.js"></script>
 </body>
 

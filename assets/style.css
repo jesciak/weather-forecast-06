@@ -1,8 +1,8 @@
+/* set the background image of the body so it covers the whole page */
 body {
     background-image: url('../assets/images/v957-wan-15.jpg');
     background-size: cover;
 }
-
 header {
     color: rgb(53, 144, 218);
     display: flex;
@@ -12,8 +12,7 @@ header {
     padding-top: 5%;
     margin-bottom: 10px;
 }
-
-
+/* all cards have the same styling */
 .card {
     background-image: url('../assets/images/sunshine-clouds-sky-during-morning-background-blue-white-pastel-heaven-soft-focus-lens-flare-sunlight-abstract-blurred-cyan-gradient-peaceful-nature-open-view-out-windows-beautiful-summer-spring.jpg');
     box-shadow: 10px 10px 5px gray;
@@ -23,33 +22,22 @@ header {
     margin: 8px;
     font-size: small;
 }
-
-/* .card-body{
-    box-shadow: 10x 10px 5px 0 (gray, .15);
-} */
+/* changes the bootstrap color of the search button */
 #searchBtn {
     background-color: rgb(53, 144, 218);
     color: bisque
 }
-
+/* changes color of search button when hover over it */
 #searchBtn:hover {
     background-color: #f0c853;
 }
-
 #fiveday {
     color: rgb(53, 144, 218);
     text-shadow: 1px 1px 1px gray;
 }
-
-/* .card-text-center{
-    background-color: #dabb4aa5;
-    display: flex;
-   
-
-} */
+/* screen responsiveness- when the screen is smaller the cards stack on top of eachother */
 @media screen and (max-width: 600px) {
     .card {
         width: 100%;
     }
-
 }
